@@ -3,6 +3,11 @@ defmodule Chat.Endpoint do
 
   socket "/socket", Chat.UserSocket
 
+  plug Corsica,
+    origins: "*",
+    allow_credentials: true,
+    allow_headers: ["content-type", "accept", "access-control-allow-headers", "access-control-expose-headers", "access-control-allow-origin"]
+
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
